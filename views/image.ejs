@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Image</title>
+    <title>Image Example</title>
 </head>
 <body>
-  <h1>Here's an image!</h1>
-  <img src="/images/example.jpg" alt="Example Image">
-  <a href="/">Go back to Home Page</a>
+    <h1>Image Example</h1>
+    <p>Here is an image served by Express:</p>
+    <img src="/images/example.jpg" alt="Example Image" style="max-width: 100%; height: auto;">
+    <br><br>
+    <!-- Download Button -->
+    <a href="/images/example.jpg" download="example.jpg">
+        <button>Download Image</button>
+    </a>
 </body>
 </html>
