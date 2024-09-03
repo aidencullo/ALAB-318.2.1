@@ -34,6 +34,17 @@ app.get('/image', (req, res) => {
   res.render('image');
 });
 
+app.get('/download-image', (req, res) => {
+  const path = require('path');
+  const filePath = path.join(__dirname, 'public', 'images', 'example.jpg');
+  res.download(filePath, 'downloaded-image.jpg', (err) => {
+    if (err) {
+      console.error('Error downloading file:', err);
+      res.status(500).send('Error downloading file');
+    }
+  });
+});
+
 app.post('/submit', (req, res) => {
   console.log(req.body);
   res.send('Form submitted');
