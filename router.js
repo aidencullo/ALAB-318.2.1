@@ -6,6 +6,12 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(logger);
+
+function logger(req, res, next) {
+  console.log(`Request received for ${req.url}`);
+  next();
+}
 
 app.get('/', (req, res) => {
   const name = "Aiden";
