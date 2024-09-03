@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const path = require('path');
+
 const port = 3000;
 
 app.set('view engine', 'ejs');
@@ -35,14 +37,8 @@ app.get('/image', (req, res) => {
 });
 
 app.get('/download-image', (req, res) => {
-  const path = require('path');
   const filePath = path.join(__dirname, 'public', 'images', 'example.jpg');
-  res.download(filePath, 'downloaded-image.jpg', (err) => {
-    if (err) {
-      console.error('Error downloading file:', err);
-      res.status(500).send('Error downloading file');
-    }
-  });
+  res.download(filePath);
 });
 
 app.post('/submit', (req, res) => {
