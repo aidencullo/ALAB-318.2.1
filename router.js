@@ -30,6 +30,10 @@ app.get('/form', (req, res) => {
   res.render('form');
 });
 
+app.get('/image', (req, res) => {
+  res.render('image');
+});
+
 app.post('/submit', (req, res) => {
   console.log(req.body);
   res.send('Form submitted');
