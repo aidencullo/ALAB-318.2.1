@@ -9,6 +9,18 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(logger);
+app.use(timeLogger);
+app.use(typeLogger);
+
+function typeLogger(req, res, next) {
+  console.log(`Request type: ${req.method}`);
+  next();
+}
+
+function timeLogger(req, res, next) {
+  console.log(`Request received at ${new Date()}`);
+  next();
+}
 
 function logger(req, res, next) {
   console.log(`Request received for ${req.url}`);
